@@ -2,8 +2,9 @@ image: node:18
 
 pages:
     stage: deploy
-    script:
+    before_script:
         - "yarn"
+    script:
         - "yarn run build"
         - "cp -a dist/. public/"
     artifacts:
