@@ -1,0 +1,22 @@
+image: node:18
+
+pages:
+    stage: deploy
+    script:
+        - "yarn"
+        - "yarn run build"
+        - "cp -a dist/. public/"
+    artifacts:
+        when: on_success
+        access: all
+        paths:
+            - "public"
+    cache:
+        key:
+            files:
+                - yarn.lock
+            prefix: yarn
+        paths:
+            - node_modules/
+    rules:
+        - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
