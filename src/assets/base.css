@@ -1,69 +1,71 @@
-@import url('./fonts.css');
+@import url("./fonts.css");
 
 /* color palette */
 :root {
-  --color-white: #fff;
-  --color-black: #000;
+    --color-white: #fff;
+    --color-black: #000;
 
-  --color-light: #eee;
-  --color-dark: #333;
+    --color-light: #eee;
+    --color-dark: #333;
 
-  --color-primary: rgb(226, 168, 71);
-  --color-primary-active: rgb(235, 181, 88);
-  --color-primary-dark: rgb(126, 72, 44);
+    --color-primary: rgb(226, 168, 71);
+    --color-primary-active: rgb(235, 181, 88);
+    --color-primary-inactive: rgb(165, 124, 54);
+    --color-primary-dark: rgb(126, 72, 44);
 }
 
 /* semantic variables */
 :root {
-  --color-text: var(--color-light);
-  --color-fg: var(--color-light);
-  --color-bg: var(--color-black);
+    --color-text: var(--color-light);
+    --color-fg: var(--color-light);
+    --color-bg: var(--color-black);
 
-  --color-footer-bg: var(--color-bg);
-  --color-footer-fg: var(--color-fg);
+    --color-footer-bg: var(--color-bg);
+    --color-footer-fg: var(--color-fg);
 
-  --flex-spacing: 0.5em;
+    --flex-spacing: 0.5em;
 
-  --font-mc: 'Minecraft', monospace;
-  --font-mc-title: 'Minecraft Ten', 'Impact', sans-serif;
+    --font-mc: "Minecraft", monospace;
+    --font-mc-title: "Minecraft Ten", "Impact", sans-serif;
 
-  --button-depth: 8px;
-  --button-depth-active: 2px;
-  --button-depth-delta: calc(var(--button-depth) - var(--button-depth-active));
-  --button-border: 2px;
+    --button-depth: 8px;
+    --button-depth-active: 2px;
+    --button-depth-delta: calc(var(--button-depth) - var(--button-depth-active));
+    --button-border: 2px;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-  }
+    :root {
+    }
 }
 
 body {
-  color: var(--color-text);
-  background-color: var(--color-bg);
+    color: var(--color-text);
+    background-color: var(--color-bg);
 
-  min-height: 100vh;
-  transition:
-    color 0.5s,
-    background-color 0.5s;
-  line-height: 1.6;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding: 0;
-  margin: 0;
+    min-height: 100vh;
+    transition:
+        color 0.5s,
+        background-color 0.5s;
+    line-height: 1.6;
+    font-family:
+        var(--font-mc),
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        "Fira Sans",
+        "Droid Sans",
+        "Helvetica Neue",
+        sans-serif;
+    font-size: 15px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
 }
