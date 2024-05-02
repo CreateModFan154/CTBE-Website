@@ -41,7 +41,10 @@
 
 body {
     color: var(--color-text);
-    background-color: var(--color-bg);
+    background-color: #2b2b2b;
+    background-image: url("./img/ca-wallpaper.png");
+    background-repeat: repeat;
+    background-blend-mode: multiply;
 
     min-height: 100vh;
     transition:

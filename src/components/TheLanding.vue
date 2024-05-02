@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { links } from '../config'
-import { scrollTo } from '../utils'
+import { links } from "../config"
+import { scrollTo } from "../utils"
 
 function onJoinClick(e: MouseEvent) {
     e.preventDefault()
-    scrollTo('#launcher')
+    scrollTo("#launcher")
 }
 </script>
 
@@ -90,11 +90,11 @@ function onJoinClick(e: MouseEvent) {
     left: 0;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vh), 0 100%);
 
-    opacity: 0.75;
-
-    background-image: url('../assets/landing.png');
+    background-color: #999;
+    background-image: url("../assets/landing.png");
     background-position: center;
     background-size: cover;
+    background-blend-mode: multiply;
 }
 
 #landingLogo > img {

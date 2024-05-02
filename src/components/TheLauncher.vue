@@ -105,7 +105,7 @@ const launcherDownloadLinks = links.launcherDownloads[platformName]
     display: block;
     max-width: 100%;
     padding: 10px;
-    background-color: rgb(255, 255, 255, 0.2);
+    background-color: rgb(0, 0, 0);
     border: var(--button-border) var(--color-primary) solid;
     box-shadow: 0 0 var(--button-border) 0 var(--color-primary-dark) inset;
     position: relative;
