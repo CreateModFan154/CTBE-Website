@@ -72,7 +72,7 @@ export const links = {
         href: "https://github.com/Fairy-Jeux/CreateAcademyLauncher/releases/latest"
     },
     launcherSource: {
-        content: "View the Launcher's soruce code on GitHub",
+        content: "View the Launcher's source code on GitHub",
         href: "https://github.com/Fairy-Jeux/CreateAcademyLauncher",
         target: "_blank"
     }
