@@ -78,6 +78,9 @@ const launcherDownloadLinks = links.launcherDownloads[platformName]
                         </p>
                     </div>
                 </div>
+                <p>
+                    <a v-bind="links.launcherSource">{{ links.launcherSource.content }}</a>
+                </p>
             </div>
         </div>
     </section>
@@ -86,11 +89,6 @@ const launcherDownloadLinks = links.launcherDownloads[platformName]
 <style scoped>
 #launcher {
     min-height: 100vh;
-}
-
-#launcherDownloadArea a:not(.button) {
-    color: inherit;
-    padding: 5px;
 }
 
 #launcherQuickGuide {

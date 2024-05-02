@@ -128,6 +128,10 @@
     margin-right: auto;
 }
 
+a:not(.button) {
+    color: inherit;
+}
+
 h1,
 h2 {
     font-weight: normal;
