@@ -32,7 +32,7 @@
     align-items: stretch;
 }
 .flex-item {
-    flex: 1;
+    flex: 1 1;
 }
 
 .full-width {

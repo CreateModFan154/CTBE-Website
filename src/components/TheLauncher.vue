@@ -2,7 +2,8 @@
 import { links } from "../config"
 import { getPlatformName } from "../utils"
 
-const launcherDownloadLinks = links.launcherDownloads[getPlatformName()]
+const platformName = getPlatformName()
+const launcherDownloadLinks = links.launcherDownloads[platformName]
 </script>
 
 <template>
@@ -11,18 +12,21 @@ const launcherDownloadLinks = links.launcherDownloads[getPlatformName()]
             <h1>Join The Academy</h1>
             <h3 class="subtitle">Be on the server in under 5 minutes.</h3>
             <div id="launcherDownloadArea">
-                <div class="flex flex-column">
+                <div class="flex flex-row flex-spaced">
                     <a
                         v-for="(link, index) in launcherDownloadLinks"
                         v-bind:key="index"
                         v-bind="link"
-                        class="button button-primary button-large button-expanded flex-item"
+                        class="button button-primary button-large flex-item"
                         >{{ link.content }}</a
                     >
-                    <a v-bind="links.launcherAllDownloads" class="flex-item">{{
+                </div>
+                <p v-if="platformName !== 'other'">
+                    Detected as {{ platformName }} -
+                    <a v-bind="links.launcherAllDownloads">{{
                         links.launcherAllDownloads.content
                     }}</a>
-                </div>
+                </p>
             </div>
             <div id="launcherQuickGuide">
                 <div class="item">
@@ -84,8 +88,6 @@ const launcherDownloadLinks = links.launcherDownloads[getPlatformName()]
     min-height: 100vh;
 }
 
-#launcherDownloadArea {
-}
 #launcherDownloadArea a:not(.button) {
     color: inherit;
     padding: 5px;

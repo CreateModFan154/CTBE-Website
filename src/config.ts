@@ -45,11 +45,11 @@ export const links = {
         ],
         Linux: [
             {
-                content: "Download (.deb)",
+                content: "Download for Linux (.deb)",
                 href: ""
             },
             {
-                content: "Download (.rpm)",
+                content: "Download for Linux (.rpm)",
                 href: ""
             }
         ],
@@ -62,7 +62,7 @@ export const links = {
         other: [
             // default when no OS is matched
             {
-                content: "Download",
+                content: "Download Now",
                 href: ""
             }
         ]
