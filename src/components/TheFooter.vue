@@ -9,11 +9,13 @@
             <div id="footerRight" class="flex-item text-right">
                 <p id="footerDesignedBy">
                     Designed and Developed by
+                    <a href="http://cynical.business" target="_blank">CynicalBusiness</a>
+                    <br />
                     <a
                         href="https://lab.vevox.io/code/games/minecraft/create-academy-website"
                         target="_blank"
                     >
-                        @CynicalBusiness
+                        View Site Source
                     </a>
                 </p>
             </div>
