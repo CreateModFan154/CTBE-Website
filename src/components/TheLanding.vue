@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { links } from "../config"
 import { scrollTo } from "../utils"
+import ThemeButton from "./ThemeButton.vue"
 
 function onJoinClick(e: MouseEvent) {
     e.preventDefault()
@@ -25,14 +26,14 @@ function onJoinClick(e: MouseEvent) {
                 </h3>
 
                 <div class="flex flex-row">
-                    <a
+                    <ThemeButton
                         id="launcherButton"
                         v-bind="links.join"
-                        class="button button-primary button-large button-expanded flex-item"
+                        class="button-primary button-large button-expanded flex-item"
                         @click="onJoinClick"
                     >
                         {{ links.join.content }}
-                    </a>
+                    </ThemeButton>
                 </div>
             </section>
 
@@ -42,26 +43,28 @@ function onJoinClick(e: MouseEvent) {
 
                 <!-- Social Buttons -->
                 <div class="flex flex-row flex-spaced">
-                    <a
+                    <ThemeButton
                         v-for="(link, index) in links.social"
                         v-bind:key="index"
                         v-bind="link"
                         type="button"
                         class="button button-primary flex-item"
-                        >{{ link.content }}</a
                     >
+                        {{ link.content }}
+                    </ThemeButton>
                 </div>
 
                 <!-- Map Buttons -->
                 <div class="flex flex-row flex-spaced">
-                    <a
+                    <ThemeButton
                         v-for="(link, index) in links.maps"
                         v-bind:key="index"
                         v-bind="link"
                         type="button"
                         class="button button-primary flex-item"
-                        >{{ link.content }}</a
                     >
+                        {{ link.content }}
+                    </ThemeButton>
                 </div>
             </section>
         </div>

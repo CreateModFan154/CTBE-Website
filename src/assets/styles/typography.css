@@ -1,0 +1,40 @@
+@custom-selector :--header h1, h2, h3, h4, h5, h6;
+@custom-selector :--header-large h1, h2;
+@custom-selector :--header-small h3, h4, h5, h6;
+
+.no-text-decoration {
+    text-decoration: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+:--header-large {
+    font-weight: normal;
+    font-family: var(--font-mc-title);
+}
+
+:--header-small {
+    font-family: var(--font-mc);
+}
+
+:--header:has(+ .subtitle) {
+    margin-bottom: 0;
+}
+
+.subtitle {
+    margin-top: 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 2rem;
+}
+
+a:not(.button) {
+    color: inherit;
+}

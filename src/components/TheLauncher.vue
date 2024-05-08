@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { links } from "../config"
 import { getPlatformName } from "../utils"
+import ThemeButton from "./ThemeButton.vue"
 
 const platformName = getPlatformName()
 const launcherDownloadLinks = links.launcherDownloads[platformName]
@@ -13,13 +14,14 @@ const launcherDownloadLinks = links.launcherDownloads[platformName]
             <h3 class="subtitle">Be on the server in under 5 minutes.</h3>
             <div id="launcherDownloadArea">
                 <div class="flex flex-row flex-spaced">
-                    <a
+                    <ThemeButton
                         v-for="(link, index) in launcherDownloadLinks"
                         v-bind:key="index"
                         v-bind="link"
                         class="button button-primary button-large flex-item"
-                        >{{ link.content }}</a
                     >
+                        {{ link.content }}
+                    </ThemeButton>
                 </div>
                 <p v-if="platformName !== 'other'">
                     Detected as {{ platformName }} -

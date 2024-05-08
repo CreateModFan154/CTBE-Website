@@ -8,10 +8,8 @@
     --color-light: #eee;
     --color-dark: #333;
 
-    --color-primary: rgb(226, 168, 71);
-    --color-primary-active: rgb(235, 181, 88);
-    --color-primary-inactive: rgb(165, 124, 54);
-    --color-primary-dark: rgb(126, 72, 44);
+    /* --color-primary: #9f844d; */
+    --color-primary: rgb(185, 140, 65);
 }
 
 /* semantic variables */
@@ -31,7 +29,12 @@
     --button-depth: 8px;
     --button-depth-active: 2px;
     --button-depth-delta: calc(var(--button-depth) - var(--button-depth-active));
-    --button-border: 2px;
+    --button-border: 3px;
+    --button-height: 2.8em;
+    --button-height-large: 3.2em;
+    --button-tint: rgba(0, 0, 0, 0.1);
+    --button-tint-start: 40%;
+    --button-active-filter: saturate(0.9) brightness(1.15);
 }
 
 @media (prefers-color-scheme: dark) {

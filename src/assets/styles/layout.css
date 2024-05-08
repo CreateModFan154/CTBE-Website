@@ -1,0 +1,47 @@
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    padding: 0.6em;
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-column {
+    flex-direction: column;
+}
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+.flex-spaced {
+    column-gap: var(--flex-spacing);
+    row-gap: var(--flex-spacing);
+}
+.flex-stretch {
+    justify-items: stretch;
+    align-items: stretch;
+}
+.flex-item {
+    flex: 1 1;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.auto-margin {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-margin {
+    margin: 0;
+}
