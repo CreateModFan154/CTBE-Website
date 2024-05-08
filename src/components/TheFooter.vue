@@ -2,7 +2,22 @@
 
 <template>
     <footer id="footer">
-        <div class="container">footer</div>
+        <div class="container flex flex-spaced">
+            <div id="footerLeft" class="flex-item text-left">
+                <p id="footerCopyright">&copy; 2024 - All rights reserved</p>
+            </div>
+            <div id="footerRight" class="flex-item text-right">
+                <p id="footerDesignedBy">
+                    Designed and Developed by
+                    <a
+                        href="https://lab.vevox.io/code/games/minecraft/create-academy-website"
+                        target="_blank"
+                    >
+                        @CynicalBusiness
+                    </a>
+                </p>
+            </div>
+        </div>
     </footer>
 </template>
 

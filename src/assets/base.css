@@ -19,7 +19,7 @@
     --color-bg: var(--color-black);
 
     --color-footer-bg: var(--color-bg);
-    --color-footer-fg: var(--color-fg);
+    --color-footer-fg: #555;
 
     --flex-spacing: 0.5em;
 
