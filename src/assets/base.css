@@ -8,14 +8,18 @@
     --color-light: #eee;
     --color-dark: #333;
 
+    --color-default: rgb(77, 82, 85);
+    /* --color-default: rgb(136, 145, 151); */
     /* --color-primary: #9f844d; */
     --color-primary: rgb(185, 140, 65);
+    --color-shine: rgb(182, 50, 187);
 }
 
 /* semantic variables */
 :root {
     --color-text: var(--color-light);
     --color-fg: var(--color-light);
+    --color-fg-dark: var(--color-dark);
     --color-bg: var(--color-black);
 
     --color-footer-bg: var(--color-bg);

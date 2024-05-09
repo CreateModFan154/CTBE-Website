@@ -6,6 +6,11 @@ export const links = {
         content: "Join the Server",
         href: "#"
     },
+    shop: {
+        content: "Shop Cosmetics and More",
+        href: "https://create-academy.tebex.io/",
+        target: "_blank"
+    },
     social: [
         {
             content: "Discord",

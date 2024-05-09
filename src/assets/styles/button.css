@@ -10,9 +10,10 @@
 
     font-family: var(--font-mc);
     font-size: 1.2em;
-    color: var(--color-fg);
     text-shadow: 0.1em 0.1em 0 rgba(0, 0, 0, 0.4);
-    background-color: lightblue;
+
+    color: var(--color-fg);
+    background-color: var(--color-default);
     background-image: linear-gradient(
         transparent 0%,
         transparent var(--button-tint-start),
@@ -88,5 +89,8 @@
 
     &.button-primary {
         background-color: var(--color-primary);
+    }
+    &.button-shine {
+        background-color: var(--color-shine);
     }
 }

@@ -25,7 +25,7 @@ function onJoinClick(e: MouseEvent) {
                     <em>trains</em>!
                 </h3>
 
-                <div class="flex flex-row">
+                <div class="flex flex-spaced">
                     <ThemeButton
                         id="launcherButton"
                         v-bind="links.join"
@@ -33,6 +33,13 @@ function onJoinClick(e: MouseEvent) {
                         @click="onJoinClick"
                     >
                         {{ links.join.content }}
+                    </ThemeButton>
+                    <ThemeButton
+                        id="shopButton"
+                        class="button-shine button-expanded"
+                        v-bind="links.shop"
+                    >
+                        {{ links.shop.content }}
                     </ThemeButton>
                 </div>
             </section>
@@ -48,7 +55,7 @@ function onJoinClick(e: MouseEvent) {
                         v-bind:key="index"
                         v-bind="link"
                         type="button"
-                        class="button button-primary flex-item"
+                        class="button flex-item"
                     >
                         {{ link.content }}
                     </ThemeButton>
@@ -61,7 +68,7 @@ function onJoinClick(e: MouseEvent) {
                         v-bind:key="index"
                         v-bind="link"
                         type="button"
-                        class="button button-primary flex-item"
+                        class="button flex-item"
                     >
                         {{ link.content }}
                     </ThemeButton>
