@@ -36,21 +36,21 @@ const launcherDownloadLinks = links.launcherDownloads[platformName]
                     <div class="img-container">
                         <img src="../assets/img/ca-launcher-1.png" alt="Download the launcher" />
                     </div>
-                    <p>Download and install our custom Create Academy Launcher</p>
+                    <p>Download and install the launcher</p>
                 </div>
                 <div class="item">
                     <h2>Connect</h2>
                     <div class="img-container">
                         <img src="../assets/img/ca-launcher-2.png" alt="Connect Account" />
                     </div>
-                    <p>Connect your Microsoft or Mojang account that owns Minecraft</p>
+                    <p>Connect your Minecraft account</p>
                 </div>
                 <div class="item">
                     <h2>Play!</h2>
                     <div class="img-container">
                         <img src="../assets/img/ca-launcher-3.png" alt="Play!" />
                     </div>
-                    <p>Launch the game and join The Create Academy!</p>
+                    <p>Join The Create Academy!</p>
                 </div>
             </div>
 
