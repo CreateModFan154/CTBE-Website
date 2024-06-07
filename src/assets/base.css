@@ -21,6 +21,7 @@
     --color-fg: var(--color-light);
     --color-fg-dark: var(--color-dark);
     --color-bg: var(--color-black);
+    --color-bg-transparent: rgba(0, 0, 0, 0.6);
 
     --color-footer-bg: var(--color-bg);
     --color-footer-fg: #555;
