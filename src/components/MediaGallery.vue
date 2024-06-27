@@ -36,6 +36,7 @@ function prevItem() {
                 muted
                 controls
                 v-bind="currentItem.media"
+                v-bind:key="currentItem.source.src"
             >
                 <source v-bind="currentItem.source" />
             </video>
