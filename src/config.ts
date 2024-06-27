@@ -33,12 +33,12 @@ export const links = {
     maps: [
         {
             content: "3D DynMap",
-            href: "http://94.23.44.138:8100/", // TODO not hard-coded IP
+            href: "http://createacademy.net:8100/",
             target: "_blank"
         },
         {
             content: "Live Train Map",
-            href: "http://94.23.44.138:3876/", // TODO not hard-coded IP
+            href: "http://createacademy.net:3876/",
             target: "_blank"
         }
     ],
