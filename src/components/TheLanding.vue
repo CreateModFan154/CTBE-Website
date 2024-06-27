@@ -24,47 +24,19 @@ function onJoinClick(e: MouseEvent) {
                     Work together to make industrial automation, fantastical contraptions, and even
                     <em>trains</em>!
                 </h3>
-
-                <div class="flex flex-spaced">
-                    <ThemeButton
-                        id="launcherButton"
-                        v-bind="links.join"
-                        class="button-primary button-large button-expanded flex-item"
-                        @click="onJoinClick"
-                    >
-                        {{ links.join.content }}
-                    </ThemeButton>
-                    <ThemeButton
-                        id="shopButton"
-                        class="button-shine button-expanded"
-                        v-bind="links.shop"
-                    >
-                        {{ links.shop.content }}
-                    </ThemeButton>
+                <div>
+                    <h1 style="font-size: 4em">Coming Soon!</h1>
+                    <h3 class="subtitle">Expected Release on August 20th</h3>
                 </div>
             </section>
 
             <section id="landingMenu">
                 <div><h2>Join the Community</h2></div>
-                <div><h2>View the World</h2></div>
 
                 <!-- Social Buttons -->
                 <div class="flex flex-row flex-spaced">
                     <ThemeButton
                         v-for="(link, index) in links.social"
-                        v-bind:key="index"
-                        v-bind="link"
-                        type="button"
-                        class="button flex-item"
-                    >
-                        {{ link.content }}
-                    </ThemeButton>
-                </div>
-
-                <!-- Map Buttons -->
-                <div class="flex flex-row flex-spaced">
-                    <ThemeButton
-                        v-for="(link, index) in links.maps"
                         v-bind:key="index"
                         v-bind="link"
                         type="button"
@@ -117,7 +89,7 @@ function onJoinClick(e: MouseEvent) {
 #landingMenu {
     column-gap: 2em;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: start;
 }
 </style>
