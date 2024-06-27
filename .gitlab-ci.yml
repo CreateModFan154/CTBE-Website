@@ -1,17 +1,16 @@
 image: node:18
 
-pages:
-    stage: deploy
+build:
+    stage: build
     before_script:
         - "yarn"
     script:
-        - 'yarn run build --base "${CI_PAGES_URL}"'
-        - "cp -a dist/. public/"
+        - 'yarn run build --base "./"'
     artifacts:
         when: on_success
         access: all
         paths:
-            - "public"
+            - "dist"
     cache:
         key:
             files:
@@ -19,5 +18,43 @@ pages:
             prefix: yarn
         paths:
             - node_modules/
+
+pages:
+    stage: deploy
+    dependencies:
+        - build
+    script:
+        - "cp -a dist/. public/"
     rules:
         - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+package:
+    stage: deploy
+    image: curlimages/curl:latest
+    dependencies:
+        - build
+    script:
+        - "zip -r bundle.zip dist"
+        - 'curl --fail-with-body --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file bundle.zip "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/www/${CI_COMMIT_TAG}/bundle.zip"'
+    rules:
+        - if: $CI_COMMIT_TAG
+
+release:
+    stage: deploy
+    dependencies:
+        - build
+        - package
+    image: registry.gitlab.com/gitlab-org/release-cli:latest
+    script:
+        - "echo 'Creating release...'"
+    rules:
+        - if: $CI_COMMIT_TAG
+    artifacts:
+        expire_in: never
+    release:
+        tag_name: "${CI_COMMIT_TAG}"
+        description: "${CI_COMMIT_TAG_MESSAGE}"
+        assets:
+            links:
+                - name: "bundle.zip"
+                  url: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/www/${CI_COMMIT_TAG}/bundle.zip"
