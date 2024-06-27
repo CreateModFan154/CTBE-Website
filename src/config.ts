@@ -1,9 +1,4 @@
-import type {
-    AnchorHTMLAttributes,
-    ImgHTMLAttributes,
-    SourceHTMLAttributes,
-    VideoHTMLAttributes
-} from "vue"
+import type { AnchorHTMLAttributes } from "vue"
 import type { PlatformName } from "./utils"
 
 // *==* CONFIG
@@ -93,38 +88,24 @@ export const links = {
 export const galleryItems = [
     {
         type: "video",
-        media: {
-            autoplay: true
-        },
-        source: {
-            src: "https://cdn.discordapp.com/attachments/1151388720860237890/1247988188421820516/Create_Academy.mp4?ex=66640152&is=6662afd2&hm=cd951a8d2d05b9c3e7887f7bff60dc60a6bb5066830b7c9fb5a1d31adb2785f1&"
-        },
-        thumbnail: {
-            src: "https://cdn.discordapp.com/attachments/1151388720860237890/1151389042999570462/image-85.png?ex=6663ec1b&is=66629a9b&hm=50991fba111f79ff846fa0eb6bd996f063a6a40ba89ffcadcb46fad3a8144af0&",
-            alt: "Teaser Trailer"
-        }
+        src: "https://createacademy.net/gallery/Create_Academy.mp4",
+        alt: "Create Academy Teaser Trailer",
+        thumbnail: 5
+    },
+    {
+        type: "video",
+        src: "https://createacademy.net/gallery/CA_shop_reveal.mp4",
+        alt: "Shop Reveal"
     },
     {
         type: "image",
-        media: {
-            src: "https://cdn.discordapp.com/attachments/1151388720860237890/1230128896515506176/3spoil.png?ex=66644acf&is=6662f94f&hm=4c487b04e2897fbccb6f99d2b456e823c387324e723e95780986e65a919a6d0b&",
-            alt: "Teaser 2"
-        },
-        thumbnail: {
-            src: "https://cdn.discordapp.com/attachments/1151388720860237890/1230128896515506176/3spoil.png?ex=66644acf&is=6662f94f&hm=4c487b04e2897fbccb6f99d2b456e823c387324e723e95780986e65a919a6d0b&",
-            alt: "Teaser 2"
-        }
+        src: "https://createacademy.net/gallery/spoil_date.webp",
+        alt: "Launch Date"
     },
     {
         type: "image",
-        media: {
-            src: "https://cdn.discordapp.com/attachments/1151388720860237890/1206245159889805313/image-72.png?ex=66646a59&is=666318d9&hm=98ecb02daefa7345850ff664839c069a014c7997847ab97eaa838ff7fc96e713&",
-            alt: "Teaser 3"
-        },
-        thumbnail: {
-            src: "https://cdn.discordapp.com/attachments/1151388720860237890/1206245159889805313/image-72.png?ex=66646a59&is=666318d9&hm=98ecb02daefa7345850ff664839c069a014c7997847ab97eaa838ff7fc96e713&",
-            alt: "Teaser 3"
-        }
+        src: "https://createacademy.net/gallery/spoil_image1.webp",
+        alt: "Teaser Image 1"
     }
 ] satisfies GalleryItem[]
 
@@ -139,18 +120,18 @@ export interface TextRecord {
     [key: string]: string | TextRecord
 }
 
-export interface GalleryMediaItem<TType extends string, TMedia> {
+export interface GalleryMediaItem<TType extends string> {
     type: TType
-    media: TMedia
-    thumbnail: ImgHTMLAttributes
+    src: string
+    alt: string
 }
 
-export interface GalleryImageItem extends GalleryMediaItem<"image", ImgHTMLAttributes> {
-    //
+export interface GalleryImageItem extends GalleryMediaItem<"image"> {
+    thumbnail?: string
 }
 
-export interface GalleryVideoItem extends GalleryMediaItem<"video", VideoHTMLAttributes> {
-    source: SourceHTMLAttributes
+export interface GalleryVideoItem extends GalleryMediaItem<"video"> {
+    thumbnail?: number
 }
 
 export type GalleryItem = GalleryVideoItem | GalleryImageItem

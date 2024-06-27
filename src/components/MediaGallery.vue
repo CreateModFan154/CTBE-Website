@@ -30,15 +30,19 @@ function prevItem() {
 <template>
     <div class="media-gallery">
         <div class="media-gallery-current-item">
-            <img v-if="currentItem.type === 'image'" v-bind="currentItem.media" />
+            <img
+                v-if="currentItem.type === 'image'"
+                :src="currentItem.src"
+                :alt="currentItem.alt"
+            />
             <video
                 v-else-if="currentItem.type === 'video'"
                 muted
                 controls
-                v-bind="currentItem.media"
-                v-bind:key="currentItem.source.src"
+                autoplay
+                :key="currentItem.src"
             >
-                <source v-bind="currentItem.source" />
+                <source :src="currentItem.src" :alt="currentItem.alt" />
             </video>
 
             <a
@@ -47,7 +51,7 @@ function prevItem() {
                 v-if="currentIndex > 0"
                 v-on:click.prevent="prevItem"
             >
-                &lt;
+                <img src="../assets/img/icon/chevron-left.svg" alt="Previous item" />
             </a>
             <a
                 class="media-gallery-control media-gallery-control-next"
@@ -55,7 +59,7 @@ function prevItem() {
                 v-if="currentIndex < items.length - 1"
                 v-on:click.prevent="nextItem"
             >
-                &gt;
+                <img src="../assets/img/icon/chevron-right.svg" alt="Next item" />
             </a>
         </div>
         <div class="media-gallery-reel">
@@ -63,12 +67,29 @@ function prevItem() {
                 v-for="(item, index) in items"
                 href="#"
                 class="gallery-media-reel-item"
-                v-bind:key="index"
-                v-bind:class="{ active: index === currentIndex }"
+                :key="index"
+                :class="{ active: index === currentIndex }"
+                :item-type="item.type"
                 v-on:click.prevent="() => setCurrent(index)"
                 ref="reelElements"
             >
-                <img v-bind="item.thumbnail" />
+                <img
+                    v-if="item.type == 'image'"
+                    class="media-gallery-thumbnail"
+                    :src="item.thumbnail ?? item.src"
+                    :alt="item.alt"
+                />
+
+                <div v-if="item.type == 'video'" class="media-gallery-thumbnail">
+                    <img
+                        src="../assets/img/icon/player-play.svg"
+                        alt=""
+                        class="media-gallery-thumbnail-icon"
+                    />
+                    <video preload="metadata" muted>
+                        <source :src="item.src + '#t=' + item.thumbnail" :alt="item.alt" />
+                    </video>
+                </div>
             </a>
         </div>
     </div>
@@ -91,6 +112,7 @@ function prevItem() {
     }
 
     > .media-gallery-control {
+        display: block;
         color: var(--color-fg-dark);
         background: rgba(255, 255, 255, 0.4);
         text-decoration: none;
@@ -98,6 +120,11 @@ function prevItem() {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+
+        > img {
+            display: block;
+            height: 1em;
+        }
 
         &.media-gallery-control-prev {
             left: 0;
@@ -124,13 +151,33 @@ function prevItem() {
         display: inline-block;
         border: var(--button-border) var(--color-default) solid;
         flex: 0 0 auto;
+        position: relative;
 
         &.active {
             border-color: var(--color-primary);
         }
 
-        > img {
+        > .media-gallery-thumbnail {
             height: 100%;
+
+            > .media-gallery-thumbnail-icon {
+                content: "";
+                background-size: contain;
+                background-origin: content-box;
+                background-color: rgba(255, 255, 255, 0.4);
+                height: 2em;
+                width: 2em;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+            > video,
+            img {
+                height: 100%;
+            }
         }
     }
 }
