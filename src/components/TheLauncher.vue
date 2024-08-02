@@ -66,7 +66,10 @@ getLauncherDownloads()
             <h1>Join The Academy</h1>
             <h3 class="subtitle">Be on the server in under 5 minutes.</h3>
             <div id="launcherDownloadArea">
-                <div v-if="launcherDownloadLinks?.length" class="flex flex-row flex-spaced">
+                <div
+                    v-if="launcherDownloadLinks && launcherDownloadLinks.length"
+                    class="flex flex-row flex-spaced"
+                >
                     <ThemeButton
                         v-for="(link, index) in launcherDownloadLinks"
                         v-bind:key="index"
