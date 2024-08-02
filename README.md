@@ -1,6 +1,8 @@
 # create-academy-website
 
-This template should help get you started developing with Vue 3 in Vite.
+## Hey You!
+
+**Here looking for the Create Academy Launcher? Of course you are.** :wink:
 
 ## Recommended IDE Setup
 
