@@ -101,7 +101,7 @@ export const galleryItems = [
 
 // *==* CONFIG TYPES
 
-export interface LinkItem extends AnchorHTMLAttributes {
+export interface LinkItem extends Pick<AnchorHTMLAttributes, "target"> {
     content: string
     href: string
 }
