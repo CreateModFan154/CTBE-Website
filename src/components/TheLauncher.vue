@@ -1,10 +1,63 @@
 <script setup lang="ts">
-import { links } from "../config"
+import { ref } from "vue"
+import {
+    launcherArtifacts,
+    launcherRepository,
+    links,
+    type LinkItem,
+    type ReleasesResult
+} from "../config"
 import { getPlatformName } from "../utils"
 import ThemeButton from "./ThemeButton.vue"
 
-const platformName = getPlatformName()
-const launcherDownloadLinks = links.launcherDownloads[platformName]
+async function getLauncherDownloads(): Promise<LinkItem[]> {
+    const platformName = getPlatformName()
+
+    if (platformName === "other") {
+        return []
+    }
+
+    const releasesResponse = await fetch(
+        `https://api.github.com/repos/${launcherRepository}/releases/latest`,
+        {
+            redirect: "follow"
+        }
+    )
+    const releases = (await releasesResponse.json()) as ReleasesResult
+    console.log("Got launcher releases:", releases)
+
+    const artifactConfigs = launcherArtifacts[platformName]
+    if (!artifactConfigs || !artifactConfigs.length) {
+        return []
+    }
+
+    let downloadLinks: LinkItem[] = []
+
+    for (const artifactConfig of artifactConfigs) {
+        const asset = releases.assets.find((asset) => asset.name.endsWith(artifactConfig.suffix))
+        if (!asset) {
+            console.warn("No asset found for artifact config", artifactConfig)
+            continue
+        }
+
+        downloadLinks.push({
+            content: `Download for ${platformName} (${artifactConfig.variant})`,
+            href: asset.browser_download_url
+        })
+    }
+
+    return downloadLinks
+}
+
+const launcherDownloadLinks = ref<LinkItem[] | null>(null)
+getLauncherDownloads()
+    .catch((error) => {
+        console.warn("Failed to load launcher manifest, showing default download link", error)
+        return [links.launcherOtherDownload]
+    })
+    .then((links) => {
+        launcherDownloadLinks.value = links
+    })
 </script>
 
 <template>
@@ -13,7 +66,7 @@ const launcherDownloadLinks = links.launcherDownloads[platformName]
             <h1>Join The Academy</h1>
             <h3 class="subtitle">Be on the server in under 5 minutes.</h3>
             <div id="launcherDownloadArea">
-                <div class="flex flex-row flex-spaced">
+                <div v-if="launcherDownloadLinks?.length" class="flex flex-row flex-spaced">
                     <ThemeButton
                         v-for="(link, index) in launcherDownloadLinks"
                         v-bind:key="index"
@@ -23,11 +76,19 @@ const launcherDownloadLinks = links.launcherDownloads[platformName]
                         {{ link.content }}
                     </ThemeButton>
                 </div>
-                <p v-if="platformName !== 'other'">
-                    Detected as {{ platformName }} -
-                    <a v-bind="links.launcherAllDownloads">{{
-                        links.launcherAllDownloads.content
-                    }}</a>
+                <div v-else class="flex flex-row flex-spaced">
+                    <ThemeButton
+                        v-bind="links.launcherOtherDownload"
+                        class="button button-primary button-large flex-item"
+                    >
+                        {{ links.launcherOtherDownload.content }}
+                    </ThemeButton>
+                </div>
+
+                <p>
+                    <a v-bind="links.launcherAllDownloads">
+                        {{ links.launcherAllDownloads.content }}
+                    </a>
                 </p>
             </div>
             <div id="launcherQuickGuide">

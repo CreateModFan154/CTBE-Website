@@ -3,6 +3,19 @@ import type { PlatformName } from "./utils"
 
 // *==* CONFIG
 
+export const launcherRepository = "Fairy-Jeux/CreateAcademyLauncher"
+
+export const launcherBaseUrl = `https://github.com/${launcherRepository}/releases/latest/download/`
+
+export const launcherArtifacts: Record<Exclude<PlatformName, "other">, LauncherArtifactConfig[]> = {
+    Windows: [{ suffix: ".exe", variant: "Installer" }],
+    Linux: [{ suffix: ".AppImage", variant: "AppImage" }],
+    macOS: [
+        { suffix: "x64.dmg", variant: "Intel" },
+        { suffix: "arm64.dmg", variant: "M1/M2" }
+    ]
+}
+
 export const links = {
     join: {
         content: "Join the Server",
@@ -47,48 +60,20 @@ export const links = {
             target: "_blank"
         }
     ],
-    launcherDownloads: {
-        // TODO set up these downloads
-        Windows: [
-            {
-                content: "Download for Windows",
-                href: "https://github.com/Fairy-Jeux/CreateAcademyLauncher/releases/latest/download/Create.Academy.Launcher-setup.exe"
-            }
-        ],
-        Linux: [
-            {
-                content: "Download for Linux (AppImage)",
-                href: "https://github.com/Fairy-Jeux/CreateAcademyLauncher/releases/latest/download/Create.Academy.Launcher-setup.AppImage"
-            }
-        ],
-        macOS: [
-            {
-                content: "Download for macOS\n(x64 for Intel)",
-                href: "https://github.com/Fairy-Jeux/CreateAcademyLauncher/releases/latest/download/Create.Academy.Launcher-setup-x64.dmg"
-            },
-            {
-                content: "Download for macOS\n(arm64 for M1/M2)",
-                href: "https://github.com/Fairy-Jeux/CreateAcademyLauncher/releases/latest/download/Create.Academy.Launcher-setup-arm64.dmg"
-            }
-        ],
-        other: [
-            // default when no OS is matched
-            {
-                content: "Download Now",
-                href: "https://github.com/Fairy-Jeux/CreateAcademyLauncher/releases/latest"
-            }
-        ]
-    } satisfies Record<PlatformName, LinkItem[]>,
+    launcherOtherDownload: {
+        content: "Download",
+        href: `https://github.com/${launcherRepository}/releases/latest`
+    },
     launcherAllDownloads: {
         content: "Download for other platforms",
-        href: "https://github.com/Fairy-Jeux/CreateAcademyLauncher/releases/latest"
+        href: `https://github.com/${launcherRepository}/releases/latest`
     },
     launcherSource: {
         content: "View the Launcher's source code on GitHub",
-        href: "https://github.com/Fairy-Jeux/CreateAcademyLauncher",
+        href: `https://github.com/${launcherRepository}`,
         target: "_blank"
     }
-} satisfies Record<string, LinkItem | LinkItem[] | Record<string, LinkItem[]>>
+} satisfies Record<string, LinkItem | LinkItem[] | Record<string, LinkItem[] | LinkItem>>
 
 export const galleryItems = [
     {
@@ -123,6 +108,18 @@ export interface LinkItem extends AnchorHTMLAttributes {
 
 export interface TextRecord {
     [key: string]: string | TextRecord
+}
+
+export interface LauncherArtifactConfig {
+    suffix: string
+    variant: string
+}
+
+export interface ReleasesResult {
+    assets: Array<{
+        name: string
+        browser_download_url: string
+    }>
 }
 
 export interface GalleryMediaItem<TType extends string> {
