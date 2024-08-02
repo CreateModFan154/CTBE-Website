@@ -39,7 +39,7 @@ function prevItem() {
                 v-else-if="currentItem.type === 'video'"
                 muted
                 controls
-                autoplay
+                preload="metadata"
                 :key="currentItem.src"
             >
                 <source :src="currentItem.src" :alt="currentItem.alt" />
