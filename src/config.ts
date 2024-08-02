@@ -73,7 +73,7 @@ export const links = {
         href: `https://github.com/${launcherRepository}`,
         target: "_blank"
     }
-} satisfies Record<string, LinkItem | LinkItem[] | Record<string, LinkItem[] | LinkItem>>
+} satisfies Record<string, LinkItem | LinkItem[] | Record<string, LinkItem[]>>
 
 export const galleryItems = [
     {
