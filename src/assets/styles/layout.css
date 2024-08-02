@@ -33,8 +33,14 @@
     flex: 1 1;
 }
 
-.full-width {
+.full-width,
+.expanded {
     width: 100%;
+}
+
+.most-width,
+.semi-expanded {
+    width: 80%;
 }
 
 .auto-margin {
@@ -44,4 +50,8 @@
 
 .no-margin {
     margin: 0;
+}
+
+.expanded {
+    width: 100%;
 }

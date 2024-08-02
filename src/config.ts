@@ -13,6 +13,11 @@ export const links = {
         href: "https://create-academy.tebex.io/",
         target: "_blank"
     },
+    rules: {
+        content: "Read the Server Rules",
+        href: "https://createacademy.net/rules",
+        target: "_blank"
+    },
     social: [
         {
             content: "Discord",

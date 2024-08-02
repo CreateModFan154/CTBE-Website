@@ -34,12 +34,24 @@ function onJoinClick(e: MouseEvent) {
                     >
                         {{ links.join.content }}
                     </ThemeButton>
+                </div>
+                <br />
+                <div class="flex flex-row flex-spaced flex-item semi-expanded auto-margin">
                     <ThemeButton
                         id="shopButton"
-                        class="button-shine button-expanded"
+                        class="button button-shine flex-item"
+                        type="button"
                         v-bind="links.shop"
                     >
                         {{ links.shop.content }}
+                    </ThemeButton>
+                    <ThemeButton
+                        id="shopButton"
+                        class="button flex-item"
+                        type="button"
+                        v-bind="links.rules"
+                    >
+                        {{ links.rules.content }}
                     </ThemeButton>
                 </div>
             </section>
