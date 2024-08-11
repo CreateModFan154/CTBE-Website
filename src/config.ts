@@ -80,14 +80,57 @@ export const links = {
 export const galleryItems = [
     {
         type: "video",
-        src: "https://createacademy.net/gallery/Create_Academy.mp4",
-        alt: "Create Academy Teaser Trailer",
-        thumbnail: 5
+        src: "https://createacademy.net/gallery/CA_Trailer.mp4",
+        alt: "Create Academy Trailer",
+        thumbnail: {
+            src: "https://createacademy.net/gallery/CA_Trailer.jpg",
+            alt: "Create Academy Trailer Thumbnail"
+        }
+    },
+    {
+        type: "video",
+        src: "https://createacademy.net/gallery/CA_Monthly_Seasons_Showcase.mp4",
+        alt: "Monthly Seasons Showcase",
+        thumbnail: {
+            src: "https://createacademy.net/gallery/CA_Monthly_Seasons_Showcase.jpg",
+            alt: "Monthly Seasons Showcase Thumbnail"
+        }
+    },
+    {
+        type: "video",
+        src: "https://createacademy.net/gallery/CA_Cosmetics_Reveal.mp4",
+        alt: "Cosmetics Reveal",
+        thumbnail: {
+            src: "https://createacademy.net/gallery/CA_Cosmetics_Reveal.jpg",
+            alt: "Cosmetics Reveal Thumbnail"
+        }
+    },
+    {
+        type: "video",
+        src: "https://createacademy.net/gallery/CA_Consumables_Reveal.mp4",
+        alt: "Consumables Reveal",
+        thumbnail: {
+            src: "https://createacademy.net/gallery/CA_Consumables_Reveal.jpg",
+            alt: "Consumables Reveal Thumbnail"
+        }
     },
     {
         type: "video",
         src: "https://createacademy.net/gallery/CA_shop_reveal.mp4",
-        alt: "Shop Reveal"
+        alt: "Shop Reveal",
+        thumbnail: {
+            src: "https://createacademy.net/gallery/CA_shop_reveal.jpg",
+            alt: "Shop Reveal Thumbnail"
+        }
+    },
+    {
+        type: "video",
+        src: "https://createacademy.net/gallery/Create_Academy.mp4",
+        alt: "Create Academy Teaser Trailer",
+        thumbnail: {
+            src: "https://createacademy.net/gallery/Create_Academy.jpg",
+            alt: "Create Academy Teaser Trailer Thumbnail"
+        }
     },
     {
         type: "image",
@@ -135,7 +178,7 @@ export interface GalleryImageItem extends GalleryMediaItem<"image"> {
 }
 
 export interface GalleryVideoItem extends GalleryMediaItem<"video"> {
-    thumbnail?: number
+    thumbnail: Omit<GalleryImageItem, "type">
 }
 
 export type GalleryItem = GalleryVideoItem | GalleryImageItem

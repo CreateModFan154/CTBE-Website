@@ -40,6 +40,7 @@ function prevItem() {
                 muted
                 controls
                 preload="metadata"
+                :poster="currentItem.thumbnail.src"
                 :key="currentItem.src"
             >
                 <source :src="currentItem.src" :alt="currentItem.alt" />
@@ -86,9 +87,11 @@ function prevItem() {
                         alt=""
                         class="media-gallery-thumbnail-icon"
                     />
-                    <video preload="metadata" muted>
-                        <source :src="item.src + '#t=' + item.thumbnail" :alt="item.alt" />
-                    </video>
+                    <img
+                        class="media-gallery-thumbnail"
+                        :src="item.thumbnail.src"
+                        :alt="item.thumbnail.alt"
+                    />
                 </div>
             </a>
         </div>
@@ -102,6 +105,7 @@ function prevItem() {
     max-height: 70vh;
     aspect-ratio: 16 / 9;
     position: relative;
+    border: var(--button-border) var(--color-primary) solid;
 
     > img,
     video {
@@ -145,7 +149,8 @@ function prevItem() {
     overflow-y: hidden;
     column-gap: 1em;
     align-items: stretch;
-    padding-top: 0.5em;
+    padding: 0.5em 0;
+    box-sizing: content-box;
 
     > .gallery-media-reel-item {
         display: inline-block;
@@ -172,6 +177,7 @@ function prevItem() {
                 left: 10px;
                 padding: 10px;
                 border-radius: 10px;
+                font-size: 6px;
             }
 
             > video,
