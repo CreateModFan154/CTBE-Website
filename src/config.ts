@@ -4,8 +4,10 @@ import type { PlatformName } from "./utils"
 // *==* CONFIG
 
 export const launcherRepository = "Fairy-Jeux/CreateAcademyLauncher"
+export const launcherRepositoryUrl = `https://github.com/${launcherRepository}`
 
-export const launcherBaseUrl = `https://github.com/${launcherRepository}/releases/latest/download/`
+export const launcherReleasesUrl = `${launcherRepositoryUrl}/releases`
+export const launcherDownloadBaseUrl = `${launcherReleasesUrl}/latest/download`
 
 export const launcherArtifacts: Record<Exclude<PlatformName, "other">, LauncherArtifactConfig[]> = {
     Windows: [{ suffix: ".exe", variant: "Installer" }],
@@ -62,15 +64,15 @@ export const links = {
     ],
     launcherOtherDownload: {
         content: "Download",
-        href: `https://github.com/${launcherRepository}/releases/latest`
+        href: `${launcherReleasesUrl}/latest`
     },
     launcherAllDownloads: {
         content: "Download for other platforms",
-        href: `https://github.com/${launcherRepository}/releases/latest`
+        href: `${launcherReleasesUrl}/latest`
     },
     launcherSource: {
         content: "View the Launcher's source code on GitHub",
-        href: `https://github.com/${launcherRepository}`,
+        href: launcherRepositoryUrl,
         target: "_blank"
     }
 } satisfies Record<string, LinkItem | LinkItem[] | Record<string, LinkItem[]>>
