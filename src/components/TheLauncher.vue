@@ -192,4 +192,8 @@ getLauncherDownloads()
     object-fit: contain;
     object-position: center;
 }
+
+#launcherDownloadArea {
+    flex-wrap: wrap;
+}
 </style>
