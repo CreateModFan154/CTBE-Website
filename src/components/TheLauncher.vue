@@ -34,7 +34,7 @@ async function getLauncherDownloads(): Promise<LinkItem[]> {
     let downloadLinks: LinkItem[] = []
 
     for (const artifactConfig of artifactConfigs) {
-        const asset = releases.assets.find((asset) => asset.name.endsWith(artifactConfig.suffix))
+        const asset = releases.assets.find((asset) => artifactConfig.match.test(asset.name))
         if (!asset) {
             console.warn("No asset found for artifact config", artifactConfig)
             continue

@@ -10,11 +10,14 @@ export const launcherReleasesUrl = `${launcherRepositoryUrl}/releases`
 export const launcherDownloadBaseUrl = `${launcherReleasesUrl}/latest/download`
 
 export const launcherArtifacts: Record<Exclude<PlatformName, "other">, LauncherArtifactConfig[]> = {
-    Windows: [{ suffix: ".exe", variant: "Installer" }],
-    Linux: [{ suffix: ".AppImage", variant: "AppImage" }],
+    Windows: [{ match: /win_x64\.exe$/, variant: "Installer" }],
+    Linux: [
+        { match: /linux_arm64\.AppImage$/, variant: "AppImage (arm64)" },
+        { match: /linux_x86_64\.AppImage$/, variant: "AppImage (x64)" }
+    ],
     macOS: [
-        { suffix: "x64.dmg", variant: "Intel" },
-        { suffix: "arm64.dmg", variant: "M1/M2" }
+        { match: /mac_x64\.dmg$/, variant: "Intel" },
+        { match: /mac_arm64\.dmg$/, variant: "M1/M2" }
     ]
 }
 
@@ -156,7 +159,7 @@ export interface TextRecord {
 }
 
 export interface LauncherArtifactConfig {
-    suffix: string
+    match: RegExp
     variant: string
 }
 
