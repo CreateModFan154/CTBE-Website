@@ -93,6 +93,26 @@ getLauncherDownloads()
                         {{ links.launcherAllDownloads.content }}
                     </a>
                 </p>
+
+                <p>Having trouble? Prefer not to use our launcher?</p>
+                <div class="flex flex-row flex-center flex-spaced">
+                    <ThemeButton
+                        v-bind="links.modpackCurseForge"
+                        class="button flex-item"
+                        style="flex-basis: 25%; flex-grow: 0"
+                    >
+                        Download on
+                        <span style="color: #f16436">{{ links.modpackCurseForge.content }}</span>
+                    </ThemeButton>
+                    <ThemeButton
+                        v-bind="links.modpackModrinth"
+                        class="button flex-item"
+                        style="flex-basis: 25%; flex-grow: 0"
+                    >
+                        Download on
+                        <span style="color: #1bd96a">{{ links.modpackModrinth.content }}</span>
+                    </ThemeButton>
+                </div>
             </div>
             <div id="launcherQuickGuide">
                 <div class="item">

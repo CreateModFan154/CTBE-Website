@@ -29,6 +29,10 @@
     justify-items: stretch;
     align-items: stretch;
 }
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
 .flex-item {
     flex: 1 1;
 }

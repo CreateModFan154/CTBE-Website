@@ -77,6 +77,16 @@ export const links = {
         content: "View the Launcher's source code on GitHub",
         href: launcherRepositoryUrl,
         target: "_blank"
+    },
+    modpackCurseForge: {
+        content: "CurseForge",
+        href: "https://www.curseforge.com/minecraft/modpacks/create-academy",
+        target: "_blank"
+    },
+    modpackModrinth: {
+        content: "Modrinth",
+        href: "https://modrinth.com/modpack/create-academy",
+        target: "_blank"
     }
 } satisfies Record<string, LinkItem | LinkItem[] | Record<string, LinkItem[]>>
 
