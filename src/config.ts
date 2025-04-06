@@ -21,6 +21,9 @@ export const launcherArtifacts: Record<Exclude<PlatformName, "other">, LauncherA
     ]
 }
 
+export const COPYRIGHT_YEAR = "2024-2025"
+export const COPYRIGHT_NAME = "Create Academy Team"
+
 export const links = {
     join: {
         content: "Join the Server",
