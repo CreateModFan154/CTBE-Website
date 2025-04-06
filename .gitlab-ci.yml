@@ -3,6 +3,7 @@ image: node:22
 build:
     stage: build
     before_script:
+        - "corepack enable"
         - "yarn"
     script:
         - 'yarn run build --base "./"'
