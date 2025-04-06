@@ -43,8 +43,8 @@ export const links = {
             target: "_blank"
         },
         {
-            content: "Twitter",
-            href: "https://x.com/CreateAcademyMC",
+            content: "BlueSky",
+            href: "https://bsky.app/profile/createacademy.net",
             target: "_blank"
         },
         {
@@ -55,7 +55,7 @@ export const links = {
     ],
     maps: [
         {
-            content: "3D DynMap",
+            content: "3D Live Map",
             href: "http://createacademy.net:8100/",
             target: "_blank"
         },
