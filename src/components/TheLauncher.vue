@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import {
-    launcherArtifacts,
-    launcherRepository,
     links,
     type LinkItem,
     type ReleasesResult
@@ -16,20 +14,9 @@ async function getLauncherDownloads(): Promise<LinkItem[]> {
     if (platformName === "other") {
         return []
     }
-
-    const releasesResponse = await fetch(
-        `https://api.github.com/repos/${launcherRepository}/releases/latest`,
-        {
-            redirect: "follow"
-        }
-    )
     const releases = (await releasesResponse.json()) as ReleasesResult
     console.log("Got launcher releases:", releases)
 
-    const artifactConfigs = launcherArtifacts[platformName]
-    if (!artifactConfigs || !artifactConfigs.length) {
-        return []
-    }
 
     let downloadLinks: LinkItem[] = []
 
