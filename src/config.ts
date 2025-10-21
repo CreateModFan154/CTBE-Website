@@ -3,24 +3,6 @@ import type { PlatformName } from "./utils"
 
 // *==* CONFIG
 
-export const launcherRepository = "Fairy-Jeux/CreateAcademyLauncher"
-export const launcherRepositoryUrl = `https://github.com/${launcherRepository}`
-
-export const launcherReleasesUrl = `${launcherRepositoryUrl}/releases`
-export const launcherDownloadBaseUrl = `${launcherReleasesUrl}/latest/download`
-
-export const launcherArtifacts: Record<Exclude<PlatformName, "other">, LauncherArtifactConfig[]> = {
-    Windows: [{ match: /win_x64\.exe$/, variant: "Installer" }],
-    Linux: [
-        { match: /linux_arm64\.AppImage$/, variant: "AppImage (arm64)" },
-        { match: /linux_x86_64\.AppImage$/, variant: "AppImage (x64)" }
-    ],
-    macOS: [
-        { match: /mac_x64\.dmg$/, variant: "Intel" },
-        { match: /mac_arm64\.dmg$/, variant: "M1/M2" }
-    ]
-}
-
 export const COPYRIGHT_YEAR = "2024-2025"
 export const COPYRIGHT_NAME = "CreateModFan12"
 
@@ -68,19 +50,6 @@ export const links = {
             target: "_blank"
         }
     ],
-    launcherOtherDownload: {
-        content: "Download",
-        href: `${launcherReleasesUrl}/latest`
-    },
-    launcherAllDownloads: {
-        content: "Download for other platforms",
-        href: `${launcherReleasesUrl}/latest`
-    },
-    launcherSource: {
-        content: "View the Launcher's source code on GitHub",
-        href: launcherRepositoryUrl,
-        target: "_blank"
-    },
     modpackCurseForge: {
         content: "CurseForge",
         href: "https://www.curseforge.com/minecraft/modpacks/create-academy",
@@ -117,10 +86,6 @@ export interface TextRecord {
     [key: string]: string | TextRecord
 }
 
-export interface LauncherArtifactConfig {
-    match: RegExp
-    variant: string
-}
 
 export interface ReleasesResult {
     assets: Array<{
@@ -138,9 +103,3 @@ export interface GalleryMediaItem<TType extends string> {
 export interface GalleryImageItem extends GalleryMediaItem<"image"> {
     thumbnail?: string
 }
-
-export interface GalleryVideoItem extends GalleryMediaItem<"video"> {
-    thumbnail: Omit<GalleryImageItem, "type">
-}
-
-export type GalleryItem = GalleryVideoItem | GalleryImageItem
