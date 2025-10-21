@@ -16,11 +16,12 @@ import { VERSION } from "@/package"
             <div id="footerRight" class="flex-item text-right">
                 <p id="footerDesignedBy">
                     Designed and Developed by
-                    <a href="https://cynical.business" target="_blank">CynicalBusiness</a>
+                    <a href="createmodfan154.github.io" target="_blank">CreateModFan12</a>
+                    Inspired by the Create Academy site
                     <br />
                     v{{ VERSION }} -
                     <a
-                        href="https://lab.vevox.io/code/games/minecraft/create-academy-website"
+                        href="https://github.com/CreateModFan154/CTBE-Website"
                         target="_blank"
                     >
                         View Site Source
